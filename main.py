@@ -47,7 +47,8 @@ def remove_empty_folders(folder_path):
                 remove_empty_folders(item)
 
 
-def main(folder_path):
+def main():
+    folder_path = Path(sys.argv[1])
     folder_path = folder_path.rename(folder_path.parent / normalize.normalize(folder_path.name).rstrip('.'))
     translation(folder_path)
     lists_files = scan.scan_folders(folder_path)
@@ -67,5 +68,4 @@ def main(folder_path):
 
 
 if __name__ == '__main__':
-    path = Path(sys.argv[1])
-    main(path)
+    main()
